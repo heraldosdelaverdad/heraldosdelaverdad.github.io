@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heraldos de la Verdad</title>
+<style>
+    body, html { margin:0; padding:0; font-family:'Roboto', sans-serif; background: linear-gradient(to bottom right, #FFD700, #FFFFFF); color:#0D1B2A; }
+
+    header { text-align:center; padding:30px 20px; background-color:#F0C987; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+    header h1 { font-family:'Playfair Display', serif; font-size:2.5em; margin:0; color:#0D1B2A; }
+
+    nav { margin-top:15px; }
+    nav a { margin:0 15px; text-decoration:none; font-weight:bold; color:#0D1B2A; transition:color 0.3s; }
+    nav a:hover { color:#FFFFFF; }
+
+    .hero { height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; position:relative; }
+    .hero::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255,255,255,0.4); }
+    .hero-content { position:relative; z-index:1; max-width:700px; padding:20px; }
+    .hero h2 { font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:20px; color:#DAA520; text-shadow:1px 1px 3px rgba(0,0,0,0.2); }
+    .hero p { font-size:1.2em; margin-bottom:30px; }
+    .hero button { padding:12px 30px; font-size:1em; font-weight:bold; border:none; border-radius:5px; background-color:#DAA520; color:#0D1B2A; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+    .hero button:hover { background-color:#FFD700; transform:scale(1.05); }
+
+    footer { background-color:#F0C987; text-align:center; padding:15px; color:#0D1B2A; font-weight:bold; }
+
+    /* Modal */
+    .modal {
+        display:none;
+        position:fixed;
+        z-index:100;
+        left:0; top:0;
+        width:100%; height:100%;
+        background-color: rgba(0,0,0,0.6);
+        justify-content:center;
+        align-items:center;
+    }
+
+    .modal-content {
+        background-color:#FFD700;
+        padding:30px;
+        border-radius:10px;
+        max-width:350px;
+        width:90%;
+        text-align:center;
+        box-shadow:0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h3 { margin-top:0; margin-bottom:15px; color:#0D1B2A; }
+    .modal-content input { width:80%; padding:10px; margin-bottom:15px; border:1px solid #0D1B2A; border-radius:5px; }
+    .modal-content button { padding:10px 20px; border:none; border-radius:5px; background-color:#0D1B2A; color:#FFD700; font-weight:bold; cursor:pointer; }
+    .modal-content button:hover { background-color:#0A1128; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Heraldos de la Verdad</h1>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Quiénes somos</a>
+        <a href="#">Actividades</a>
+        <a href="#">Tienda</a>
+        <a href="#">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Despierta a la verdad que ilumina tu camino</h2>
+        <p>Explora nuestra comunidad y descubre el conocimiento que guía nuestras vidas hacia la luz y la claridad interior.</p>
+        <button onclick="openModal()">Acceder a la comunidad</button>
+    </div>
+</section>
+
+<!-- Modal de login -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <h3>Iniciar sesión</h3>
+        <input type="password" id="password" placeholder="Contraseña">
+        <br>
+        <button onclick="checkPassword()">Entrar</button>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Heraldos de la Verdad | Todos los derechos reservados
+</footer>
+
+<script>
+function openModal(){
+    document.getElementById('loginModal').style.display = 'flex';
+}
+
+// Revisar contraseña
+function checkPassword(){
+    const password = document.getElementById('password').value;
+    // Cambia la contraseña según quieras
+    if(password === "lovecraft123"){
+        window.location.href = "zona_secreta.html";
+    } else {
+        alert("Contraseña incorrecta. Acceso denegado.");
+    }
+}
+
+// Cerrar modal si se hace click fuera de él
+window.onclick = function(event){
+    const modal = document.getElementById('loginModal');
+    if(event.target === modal){
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
